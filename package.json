@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "An actual user login",
   "main": "./dist/server.generated.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vapoured99/EWScoursework.git"
+  },
   "scripts": {
     "development": "nodemon",
     "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
