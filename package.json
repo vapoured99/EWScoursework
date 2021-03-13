@@ -1,5 +1,5 @@
 {
-  "name": "EWScoursework",
+  "name": "ewscoursework",
   "version": "1.0.0",
   "description": "An actual user login",
   "main": "./dist/server.generated.js",
@@ -32,16 +32,16 @@
     "react-hot-loader": "^4.13.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "webpack": "^5.23.0",
     "webpack-cli": "^4.5.0",
     "webpack-dev-middleware": "^4.1.0",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-node-externals": "^2.5.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.17",
+    "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.12.17",
     "babel-loader": "^8.2.2",
-    "file-loader": "^6.2.0"
+    "file-loader": "^6.2.0",
+    "webpack": "^5.25.0"
   }
 }
