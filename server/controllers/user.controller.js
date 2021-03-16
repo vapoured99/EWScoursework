@@ -27,6 +27,7 @@ const userByID = async (req, res, next, id) => {
         error: "User not found"
       })
     req.profile = user
+    user.profileclicks = user.profileclicks + 1
     next()
   } catch (err) {
     return res.status('400').json({
