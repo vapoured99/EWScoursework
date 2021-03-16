@@ -8,7 +8,7 @@ import EditProfile from './user/EditProfile'
 import Profile from './user/Profile'
 import PrivateRoute from './auth/PrivateRoute'
 import Menu from './core/Menu'
-import UserAdmin from './user/UsersAdmin'
+import UserAdmin from './user/UserAdmin'
 
 const MainRouter = () => {
     return (<div>
