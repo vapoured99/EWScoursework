@@ -9,10 +9,21 @@ import Profile from './user/Profile'
 import PrivateRoute from './auth/PrivateRoute'
 import Menu from './core/Menu'
 
+
+
+import UserAdmin from './user/UserAdmin'
+
+
+
+
 const MainRouter = () => {
     return (<div>
       <Menu/>
 	  <Switch>
+
+    <Route path="/useradmin/:userId" component={UserAdmin}/>
+
+
         <Route exact path="/" component={Home}/>
         <Route path="/users" component={Users}/>
         <Route path="/signup" component={Signup}/>
