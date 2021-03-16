@@ -83,6 +83,11 @@ export default function Profile({ match }) {
               </ListItemSecondaryAction>)
             }
           </ListItem>
+
+          <ListItem>
+            <ListItemText primary={user.about}/>
+          </ListItem>
+
           <Divider/>
           <ListItem>
             <ListItemText primary={"Joined: " + (
