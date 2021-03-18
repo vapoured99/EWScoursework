@@ -15,7 +15,8 @@ router.route('/api/users/:userId')
 
 router.param('userId', userCtrl.userByID)
 
-
+router.route('/api/users/admin/:userId')
+ .get(authCtrl.requireSignin, authCtrl.hasAdminAuthorization, userCtrl.list)
 
 
 

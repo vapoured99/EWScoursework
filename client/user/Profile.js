@@ -17,6 +17,7 @@ import auth from './../auth/auth-helper'
 import {read} from './api-user.js'
 import {Redirect, Link} from 'react-router-dom'
 
+
 const useStyles = makeStyles(theme => ({
   root: theme.mixins.gutters({
     maxWidth: 600,
@@ -83,12 +84,13 @@ export default function Profile({ match }) {
               </ListItemSecondaryAction>)
             }
           </ListItem>
-
           <ListItem>
-            <ListItemText primary={user.about}/>
+          	<ListItemText primary={user.about}/>
           </ListItem>
-
-          <Divider/>
+          <ListItem>
+          	<ListItemText primary={"Profile edits: " + user.profileclicks}/>
+          </ListItem>
+         <Divider/>
           <ListItem>
             <ListItemText primary={"Joined: " + (
               new Date(user.created)).toDateString()}/>
