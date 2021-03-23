@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     marginTop: theme.spacing(2),
-    color: theme.palette.openTitle
+    color: theme.palette.primary
   },
   textField: {
     marginLeft: theme.spacing(1),

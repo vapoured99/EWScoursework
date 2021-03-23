@@ -14,11 +14,15 @@ const isActive = (history, path) => {
   else
     return {color: '#ffffff'}
 }
+
+
+
+
 const Menu = withRouter(({history}) => (
-  <AppBar position="static">
+  <AppBar position="static" >
     <Toolbar>
       <Typography variant="h6" color="inherit">
-        EWScoursework
+        Button Selector
       </Typography>
       <Link to="/">
         <IconButton aria-label="Home" style={isActive(history, "/")}>

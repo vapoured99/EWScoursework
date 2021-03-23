@@ -11,12 +11,18 @@ export default ({markup, css}) => {
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400">
           <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
           <style>
+          
+              body{
+                background-color: '#a7cfcc'
+              }
+
               a{
                 text-decoration: none;
-                color: #061d95
+                color: #000
               }
           </style>
         </head>
+
         <body>
           <div id="root">${markup}</div>
           <style id="jss-server-side">${css}</style>

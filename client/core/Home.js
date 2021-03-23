@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
@@ -6,20 +6,27 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import myImg from './../assets/images/AB_Testing.png'
 import {Link} from 'react-router-dom'
+import {joke} from '../thirdparty/api-dadjokes.js'
+import React, {useEffect, useState} from 'react'
+
+
+
+
+
 
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 600,
     margin: 'auto',
-    marginTop: theme.spacing(5),
+    marginTop: theme.spacing(2),
     marginBottom: theme.spacing(5)
   },
   title: {
     padding:`${theme.spacing(3)}px ${theme.spacing(2.5)}px ${theme.spacing(2)}px`,
-    color: theme.palette.openTitle
+    color: theme.palette.primary
   },
   media: {
-    minHeight: 400
+    minHeight: 300
   },
   credit: {
     padding: 10,
@@ -32,23 +39,56 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Home(){
-  const classes = useStyles()
-    return (
-        <Card className={classes.card}>
-          <Typography variant="h6" className={classes.title}>
-            Home Page
-          
-          </Typography>
-          <CardMedia className={classes.media} image={myImg} title="My Image"/>
-          <Typography variant="body2" component="p" className={classes.credit} color="textSecondary"> Image by Picasso </Typography>
-          <CardContent>
-            <Typography variant="body1" component="p">
-              Welcome to EWSccoursework.
-            <Link to="/users"> Users </Link>
-            </Typography>
-          </CardContent>
-        </Card>
-    )
-}
 
+export default function Home(){
+
+  const classes = useStyles()
+  const [jokes, setJokes] = useState({
+    joke: 'No joke',
+    error: ''
+  })
+
+
+useEffect(() => {
+    const abortController = new AbortController()
+    const signal = abortController.signal
+
+    joke(signal).then((data) => {
+      if (data && data.error) {
+        console.log("error in getting jokes")
+        console.log(data.error)
+        //setJokes(...jokes, error: data.error)
+      } else {
+      	console.log("Here is the user data")
+      	console.log(data)
+      	if (data != undefined){
+      		console.log("setting the data")
+        	setJokes(data)
+        }
+      }
+    })
+
+    return function cleanup(){
+      abortController.abort()
+    }
+  }, [])    
+    
+    
+  return (
+    <Card className={classes.card}>
+      <Typography variant="h6" className={classes.title}>
+        This is the button selector site. We provide you with some options to gather data on button preferability.
+      
+      </Typography>
+      <CardMedia className={classes.media} image={myImg} title="My Image"/>
+      <CardContent>
+        <Typography variant="body1" component="p">
+          Before you head over to the testing page here is a joke to put you in a good mood.
+          <br />
+          <br />
+          {jokes.joke}
+        </Typography>
+      </CardContent>
+    </Card>
+)
+}
