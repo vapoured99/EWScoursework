@@ -1,10 +1,10 @@
-import Submit from '../models/submit.model'
+import Submit2 from '../models/submit2.model'
 import extend from 'lodash/extend'
 import errorHandler from './../helpers/dbErrorHandler'
 
 const create = async (req, res) => {
 
-  const user = new Submit(req.body)
+  const user = new Submit2(req.body)
   try {
     await user.save()
     return res.status(200).json({
@@ -23,8 +23,8 @@ const create = async (req, res) => {
 
 const list = async (res) => {
   try {
-    let submit = await Submit.find({submit:true}).select('Submit')
-    res.json(submit)
+    let submit2 = await Submit.find({submit:true}).select('Submit2')
+    res.json(submit2)
   } catch (err) {
     return res.status(400).json({
       error: errorHandler.getErrorMessage(err)

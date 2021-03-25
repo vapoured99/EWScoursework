@@ -10,7 +10,7 @@ import BackupTwoToneIcon from '@material-ui/icons/BackupTwoTone'
 import SendIcon from '@material-ui/icons/Send'
 import { render } from "react-dom";
 import { create } from "./api-submit"
-
+import { create2 } from "./api-submit2"
 
 
 const useStyles = makeStyles(theme => ({
@@ -90,8 +90,22 @@ export default function Home(){
       console.log(data)
       }
     })
+
+  }
+    const submitb2 = () => {
+      const submit2 = {      
+         submit2:true,
+      }
+      create(submit).then((data) => {
+        if (data.error) {
+         console.log(data.error)
+        } else {
+        console.log(data)
+        }
+      })
    
  }
+
 
         return (
         <Card className={classes.card}>
@@ -122,7 +136,7 @@ export default function Home(){
             className={classes.btn2}
             startIcon={<BackupTwoToneIcon />}
             variant="contained"
-            onClick={submit2}
+            onClick={submitb2}
             
           >
             SUBMIT
