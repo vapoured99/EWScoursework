@@ -59,6 +59,7 @@ const update = async (req, res) => {
     user = extend(user, req.body)
     user.updated = Date.now()
     user.profileclicks = user.profileclicks + 1
+    user.buttonclicks = user.buttonclicks + 1
     await user.save()
     user.hashed_password = undefined
     user.salt = undefined

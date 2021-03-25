@@ -89,13 +89,14 @@ export default function Profile({ match }) {
           </ListItem>
           <ListItem>
           	<ListItemText primary={"Profile edits: " + user.profileclicks}/>
+            <ListItemText primary={"button clicks: " + user.buttonclicks } margin="normal"/>   
           </ListItem>
          <Divider/>
           <ListItem>
             <ListItemText primary={"Joined: " + (
               new Date(user.created)).toDateString()}/>
           </ListItem>
-        </List>
+        </List>z
       </Paper>
     )
   }

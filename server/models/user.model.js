@@ -33,6 +33,12 @@ const UserSchema = new mongoose.Schema({
     default: 0,
     min: 0
   },
+  buttonclicks :{
+    type: Number,
+    default: 0,
+    min: 0
+  },
+
   admin: {
   	type: Boolean,
   	default: false
@@ -65,7 +71,7 @@ UserSchema.methods = {
   },
   encryptPassword: function(password) {
     if (!password) return ''
-    try {
+    try {  
       return crypto
         .createHmac('sha1', this.salt)
         .update(password)

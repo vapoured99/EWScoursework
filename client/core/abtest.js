@@ -1,15 +1,15 @@
 
 
-import Button from "@material-ui/core/Button";
-import React from 'react'
+import Button from "@material-ui/core/Button"
+import React, {component} from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
-import BackupTwoToneIcon from '@material-ui/icons/BackupTwoTone';
-import SendIcon from '@material-ui/icons/Send';
-
-
+import BackupTwoToneIcon from '@material-ui/icons/BackupTwoTone'
+import SendIcon from '@material-ui/icons/Send'
+import { render } from "react-dom";
+import { create } from "./api-submit"
 
 
 
@@ -24,6 +24,8 @@ const useStyles = makeStyles(theme => ({
     padding:`${theme.spacing(3)}px ${theme.spacing(2.5)}px ${theme.spacing(2)}px`,
     color: theme.palette.primary
   },
+
+
 
   credit: {
     padding: 10,
@@ -69,27 +71,49 @@ const useStyles = makeStyles(theme => ({
 
 }))
 
+
+
+
 export default function Home(){
   const classes = useStyles()
-    return (
+
+  
+
+  const submit = () => {
+    const submit = {      
+       submit:true,
+    }
+    create(submit).then((data) => {
+      if (data.error) {
+       console.log(data.error)
+      } else {
+      console.log(data)
+      }
+    })
+   
+ }
+
+        return (
         <Card className={classes.card}>
           <Typography variant="h6" className={classes.title}>
             Hello and welcome to my A/B Testing website. On this page you will need to make a decisive decsion based on what appeals to you more,
             what intrigues you and what your gut is telling you to pick. You only have 1 pick.
           </Typography>
-          <Button 
+
+
+          
+
+
+          <Button
             className={classes.btn1}
             color="primary"
             variant="contained"
-            onMouseDown={event => event.stopPropagation()}
-            onClick={event => {
-              event.stopPropagation();
-              event.preventDefault();
-              console.log("Button 1 clicked");
-            }}
+            onClick={submit} 
           >
             SUBMIT
           </Button>
+
+        
 
           &nbsp;
           &nbsp;
@@ -98,12 +122,8 @@ export default function Home(){
             className={classes.btn2}
             startIcon={<BackupTwoToneIcon />}
             variant="contained"
-            onMouseDown={event => event.stopPropagation()}
-            onClick={event => {
-              event.stopPropagation();
-              event.preventDefault();
-              console.log("Button 2 clicked");
-            }}
+            onClick={submit2}
+            
           >
             SUBMIT
           </Button>
@@ -115,12 +135,7 @@ export default function Home(){
             className={classes.btn3}
             color="inherit"
             variant="outlined"
-            onMouseDown={event => event.stopPropagation()}
-            onClick={event => {
-              event.stopPropagation();
-              event.preventDefault();
-              console.log("Button 3 clicked");
-            }}
+            onClick={submit}
           >
             SUBMIT
           </Button>
@@ -133,12 +148,7 @@ export default function Home(){
             variant="contained"
             color="secondary"
             endIcon={<SendIcon>Send</SendIcon>}
-            onMouseDown={event => event.stopPropagation()}
-            onClick={event => {
-              event.stopPropagation();
-              event.preventDefault();
-              console.log("Button 4 clicked");
-            }}
+            onClick={submit}
           >
               Send
           </Button>
@@ -156,6 +166,7 @@ export default function Home(){
         </Card>
     )
 }
+
 
 
 

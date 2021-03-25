@@ -19,7 +19,6 @@ const theme = createMuiTheme({
       contrastText: '#000',
     },
 
-
       openTitle: '#3f4771',
       protectedTitle: pink['400'],
       type: 'light'
