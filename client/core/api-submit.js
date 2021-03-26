@@ -1,6 +1,6 @@
 const create = async (submit) => {
     try {
-        let response = await fetch('/submitbutton/submit/', {
+        let response = await fetch('/selector/submit', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -11,18 +11,6 @@ const create = async (submit) => {
       return await response.json()
     } catch(err) {
       console.log(err)
-    }
-  }
-  
-  const update = async (res) => {
-    try {
-      user.buttonclicks = user.buttonclicks + 1
-      await user.save()
-      res.json(user)
-    } catch (err) {
-      return res.status(400).json({
-        error: errorHandler.getErrorMessage(err)
-      })
     }
   }
 
@@ -44,6 +32,5 @@ const create = async (submit) => {
   
   export {
     create,
-    list,
-    update
+    list
   }

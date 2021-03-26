@@ -8,7 +8,7 @@ const create = async (req, res) => {
   try {
     await user.save()
     return res.status(200).json({
-      message: "Your answer has been saved to our Database!"
+      message: "Your answer has been saved to our Database!",
     })
   } catch (err) {
     return res.status(400).json({

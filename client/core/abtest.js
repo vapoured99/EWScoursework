@@ -93,10 +93,10 @@ export default function Home(){
 
   }
     const submitb2 = () => {
-      const submit2 = {      
+      const submitb2 = {      
          submit2:true,
       }
-      create(submit).then((data) => {
+      create2(submit).then((data) => {
         if (data.error) {
          console.log(data.error)
         } else {
@@ -179,7 +179,7 @@ export default function Home(){
           </CardContent>
         </Card>
     )
-}
+        }
 
 
 

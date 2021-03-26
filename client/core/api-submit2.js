@@ -1,6 +1,6 @@
 const create = async (submit2) => {
     try {
-        let response = await fetch('/submitbutton/submit/', {
+        let response = await fetch('/submit2button/submit2/', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -21,7 +21,7 @@ const create = async (submit2) => {
   const list2 = async (signal) => {
     console.log("listing the users")
     try {
-      let response = await fetch('/selector/submit2/submit2', {
+      let response = await fetch('/submit2button/submit2/submitpage', {
         method: 'GET',
         signal: signal,
       })
